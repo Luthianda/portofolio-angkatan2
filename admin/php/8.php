@@ -5,7 +5,8 @@ if(isset($_POST['email'])){
     $email = "admin@gmail.com";
     $password = "admin";
 
-    if($_POST['email'] == $email && $_POST['password'] == $password){
+    if($_POST['email'] == $email && $_POST['password'] == $password)
+    {
         $_SESSION["email"] = $email;
         header("location:9.php");
     }else{

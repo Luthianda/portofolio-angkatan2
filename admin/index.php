@@ -1,3 +1,24 @@
+<?php
+session_start();
+include 'config/koneksi.php';
+
+if(isset($_POST['email']) && isset($_POST['password'])){
+    $email = $_POST['email'];
+    $password = sha1($_POST['password']);
+
+    // select/tampilkan semua data dari table user dimana email di ambil dari orang 
+    // input di inputan email
+    $query = mysqli_query($config, "SELECT * FROM users WHERE email='$email' AND password = '$password'");
+    // apakah/jika betul email yang diinput user adalah email yg ada di table user
+    if(mysqli_num_rows($query) > 0){
+        $row = mysqli_fetch_assoc($query);
+        $_SESSION['NAME'] = $row['name'];
+        $_SESSION['ID_USER'] = $row['id'];
+        header("location:dashboard.php");
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,10 +41,10 @@
                                 Login Form
                             </div>
                             <div class="card-body">
-                                <form action="" method="">
+                                <form action="" method="post">
                                     <div class="mb-3">
                                         <label for="" class="form-label">Email</label>
-                                        <input type="email" class="form-control" name="email" placeholder="admin@gmail.com">
+                                        <input type="email" class="form-control" name="email" placeholder="example@gmail.com">
                                     </div>
                                     <div class="mb-3">
                                         <label for="" class="form-label">Password</label>
