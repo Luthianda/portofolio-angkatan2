@@ -8,13 +8,17 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 
     // select/tampilkan semua data dari table user dimana email di ambil dari orang 
     // input di inputan email
-    $query = mysqli_query($config, "SELECT * FROM users WHERE email='$email' AND password = '$password'");
+    $query = mysqli_query($config, "SELECT * FROM users 
+    WHERE email='$email' AND password = '$password'");
     // apakah/jika betul email yang diinput user adalah email yg ada di table user
     if(mysqli_num_rows($query) > 0){
         $row = mysqli_fetch_assoc($query);
         $_SESSION['NAME'] = $row['name'];
         $_SESSION['ID_USER'] = $row['id'];
-        header("location:dashboard.php");
+        $_SESSION['LEVEL']= $row['id_levels'];
+        header("location:dashboard.php?level=" . $_SESSION['LEVEL']);
+    }else{
+        header("location:index.php?error=login");
     }
 }
 

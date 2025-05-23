@@ -4,6 +4,8 @@ include 'config/koneksi.php';
 // jika user/pengguna mencet tombol simpan
 // ambil data dari inputan, email, nama dan password
 // masukkan ke dalam table user (name, email, password) nilainya dari masing-masing inputan 
+
+
 if (isset($_POST['simpan'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
