@@ -71,7 +71,7 @@ if (isset($_POST['edit'])) {
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="user.php">User</a>
+                                <a class="nav-link" href="user.php?level=<?php echo base64_encode($_SESSION['LEVEL']) ?>" >User</a>
                             </li>
                         </ul>
                     </div>

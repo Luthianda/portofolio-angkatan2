@@ -16,7 +16,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
         $_SESSION['NAME'] = $row['name'];
         $_SESSION['ID_USER'] = $row['id'];
         $_SESSION['LEVEL']= $row['id_levels'];
-        header("location:dashboard.php?level=" . $_SESSION['LEVEL']);
+        header("location:dashboard.php?level=" . base64_encode($_SESSION['LEVEL']));
     }else{
         header("location:index.php?error=login");
     }
