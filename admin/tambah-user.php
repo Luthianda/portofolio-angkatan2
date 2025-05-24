@@ -112,12 +112,12 @@ if (isset($_POST['edit'])) {
                                         </div>
                                         <div class="col-sm-10">
                                             <input type="password" class="form-control" placeholder="Masukkan Password Anda">
-                                    <div class="mb-3 row">
-                                        <div class="col-sm-12">
+                                            <div class="mb-3 row">
+                                        <div class="col-sm-12 mt-2">
                                             <button name="<?= isset($_GET['edit']) ? 'edit' : 'simpan'; ?>" type="submit" 
                                             class="btn btn-primary">Simpan</button>
                                         </div>
-                                    </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
