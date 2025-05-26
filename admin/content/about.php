@@ -1,17 +1,17 @@
 <?php
 include 'config/koneksi.php';
 
+$queryAbout = mysqli_query($config, "SELECT * FROM abouts ORDER BY id DESC");
+$row = mysqli_fetch_all($queryAbout, MYSQLI_ASSOC);
 if (isset($_POST['simpan'])) {
     $name = $_POST['name'];
     $position = $_POST['position'];
-    $photo = $_FILES['photo']['name'];
     $content = $_POST['content'];
     $status = $_POST['status'];
 
     // ekstensi yang boleh diupload hanya .png, jpg, jpeg
     $ekstensi = ['png','jpg','jpeg'];
 
-$queryAbout = mysqli_query($config, "SELECT * FROM abouts ORDER BY id DESC");
     if (mysqli_num_rows($queryAbout) > 0){
         $rowProfile = mysqli_fetch_assoc($queryAbout);
         $id = $rowProfile['id'];    

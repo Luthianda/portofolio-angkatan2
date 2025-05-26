@@ -77,10 +77,9 @@
               <div class="row">
                 <div class="col-md-8 col-md-offset-1 inner">
                   <h1 class="animated fadeInDown">
-                    J<span style="color:#E04343;">o</span>hn<br/>
-                    <span>D<span style="color:#FFE800">o</span>e</span>
+                    <?php echo isset($rowProfile['name']) ? $rowProfile['name'] : '' ?>
                   </h1><!-- Title -->
-                  <h3 class="animated fadeInUp delay-05s"><span class="rotate">Web Designer,Photographer,3d Artist</span></h3><!-- Text Rotator -->
+                  <h3 class="animated fadeInUp delay-05s"><span class="rotate"><?php echo isset($rowProfile['position']) ? $rowProfile['position'] : '' ?></span></h3><!-- Text Rotator -->
                 </div>
               </div>
 			  <!-- Learn More Button -->
@@ -88,7 +87,7 @@
                 <div class="col-md-6 col-md-offset-3 text-center">
                   <a href="index.html#about" class="scrollto wow fadeInUp delay-5s ">
 			            <p>SEE MORE</p>
-			            <p class="scrollto--arrow"><img src="img/scroll-down.png" alt="scroll down arrow"></p>
+			            <p class="scrollto--arrow"><img src="depan/img/scroll-down.png" alt="scroll down arrow"></p>
 			        </a>
                 </div>
               </div>
@@ -113,9 +112,6 @@
               <div class="col-md-8 col-md-offset-2 wp1">
                 <h1 class="arrow">A little <span>about</span> me</h1><!-- Headline -->
 				<!-- about / welcome text -->
-                 <h3>
-                    <?php echo isset($rowProfile['name']) ? $rowProfile['name'] : '' ?>
-                 </h3>
                 <p><?php echo isset($rowProfile['content']) ? $rowProfile['content'] : ''?></p>
               </div>
             </div>
@@ -310,7 +306,7 @@
           <div class="col-md-3 col-sm-6">
               <div class="overlay-effect effects clearfix">
                   <div class="img">
-                      <a href="img/portfolio/portfolio-08-large.jpg" data-lightbox="roadtrip" title="Project Eight - Lorem Ipsum"><img class="grayscale" src="img/portfolio/portfolio-08-thumbnail.jpg" alt="Portfolio Item"></a>
+                      <a href="depan/img/portfolio/portfolio-08-large.jpg" data-lightbox="roadtrip" title="Project Eight - Lorem Ipsum"><img class="grayscale" src="depan/img/portfolio/portfolio-08-thumbnail.jpg" alt="Portfolio Item"></a>
                   </div>
               </div>
           </div>
@@ -363,7 +359,7 @@
                     <div class="col-md-4 wp4">
                       <div class="overlay-effect effects clearfix">
                         <div class="img">
-                          <img src="img/blog1.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                          <img src="depan/img/blog1.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
                         </div>
                       </div>
             <br>
@@ -374,7 +370,7 @@
                     <div class="col-md-4 wp4 delay-05s">
                       <div class="overlay-effect effects clearfix">
                         <div class="img">
-                          <img src="img/blog2.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                          <img src="depan/img/blog2.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
                         </div>
                       </div>
             <br>
@@ -385,7 +381,7 @@
                     <div class="col-md-4 wp4 delay-1s">
                       <div class="overlay-effect effects clearfix">
                         <div class="img">
-                          <img src="img/blog3.jpg"  class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                          <img src="depan/img/blog3.jpg"  class="grayscale" alt="Blog Item"><!-- Blog Image -->
                         </div>
                       </div>
             <br>
@@ -398,7 +394,7 @@
                     <div class="col-md-4 wp4">
                       <div class="overlay-effect effects clearfix">
                         <div class="img">
-                          <img src="img/blog1.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                          <img src="depan/img/blog1.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
                         </div>
                       </div>
             <br>
@@ -409,7 +405,7 @@
                     <div class="col-md-4 wp4 delay-05s">
                       <div class="overlay-effect effects clearfix">
                         <div class="img">
-                          <img src="img/blog2.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                          <img src="depan/img/blog2.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
                         </div>
                       </div>
             <br>
@@ -420,7 +416,7 @@
                     <div class="col-md-4 wp4 delay-1s">
                       <div class="overlay-effect effects clearfix">
                         <div class="img">
-                          <img src="img/blog3.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                          <img src="depan/img/blog3.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
                         </div>
                       </div>
             <br>
@@ -537,31 +533,40 @@
 			  </div>
 			  <!-- Contact Form -->
 			  <div class="col-md-6 contact">
-			     <form role="form">
+			     <form role="form" method="post">
 				            <!-- Name -->
                             <div class="row">
                                 <div class="col-md-6">
 								    <!-- E-Mail -->
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Your name">
+                                        <input type="text" class="form-control" placeholder="Your name" name="name">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
 								    <!-- Phone Number -->
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email address">
+                                        <input type="email" class="form-control" placeholder="Email address" name="email">
                                     </div>
                                 </div>
                             </div>
 							<!-- Message Area -->
                             <div class="form-group">
-                                <textarea class="form-control" placeholder="Write you message here..." style="height:232px;"></textarea>
+                                <textarea class="form-control" placeholder="Write you message here..." style="height:232px;" name="message"></textarea>
                             </div>
 							<!-- Subtmit Button -->
-                            <button type="submit" class="btn btn-send">
+                            <button type="submit" class="btn btn-send" name="simpan">
                                 Send message
                             </button>
                         </form>
+                        <?php
+                            include 'admin/config/koneksi.php';
+                            if(isset($_POST['simpan'])){
+                                $name = $_POST['name'];
+                                $email = $_POST['email'];
+                                $message = $_POST['message'];
+                                $query = mysqli_query($config, "INSERT INTO contacts(name, email, message) VALUES ('$name','$email','$message')");
+                            }
+                        ?>
 			  </div>
 			</div>
 			<br>
