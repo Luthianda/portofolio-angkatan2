@@ -1,5 +1,10 @@
 <?php
 include 'config/koneksi.php';
+// if($_SESSION['LEVEL'] != 1){
+//     echo "<h1>Siapa kamu main masuk-masuk ajah??!!<h1>";
+//     echo "<a href='dashboard.php' class='btn btn-warning'>Kembali</a>";
+//     die;
+// } (kayaknya ini buat user yg di dalem content)
 
 // munculkan/pilih semua data dari table user urutkan dari yang terbesar
 // ke terkecil

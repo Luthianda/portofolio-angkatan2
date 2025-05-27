@@ -1,8 +1,19 @@
 <?php
     include 'admin/config/koneksi.php';
     //query profile untuk menganmbil data dari database
-    $queryProfile = mysqli_query($config, "SELECT * FROM abouts ORDER BY id DESC");
-    $rowProfile = mysqli_fetch_assoc($queryProfile);
+    $queryAbout = mysqli_query($config, "SELECT * FROM abouts ORDER BY id DESC");
+    $rowAbout = mysqli_fetch_assoc($queryAbout);
+
+    $queryService = mysqli_query($config, "SELECT * FROM services ORDER BY id DESC");
+    $rowService = mysqli_fetch_all($queryService, MYSQLI_ASSOC);
+
+    $queryBlog = mysqli_query($config, "SELECT * FROM blogs ORDER BY id DESC");
+    $rowBlog = mysqli_fetch_all($queryBlog, MYSQLI_ASSOC);
+
+    $queryPorto = mysqli_query($config, "SELECT * FROM portos ORDER BY id DESC");
+    $rowPorto = mysqli_fetch_all($queryPorto, MYSQLI_ASSOC);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,9 +88,9 @@
               <div class="row">
                 <div class="col-md-8 col-md-offset-1 inner">
                   <h1 class="animated fadeInDown">
-                    <?php echo isset($rowProfile['name']) ? $rowProfile['name'] : '' ?>
+                    <?php echo isset($rowAbout['name']) ? $rowAbout['name'] : '' ?>
                   </h1><!-- Title -->
-                  <h3 class="animated fadeInUp delay-05s"><span class="rotate"><?php echo isset($rowProfile['position']) ? $rowProfile['position'] : '' ?></span></h3><!-- Text Rotator -->
+                  <h3 class="animated fadeInUp delay-05s"><span class="rotate"><?php echo isset($rowAbout['position']) ? $rowAbout['position'] : '' ?></span></h3><!-- Text Rotator -->
                 </div>
               </div>
 			  <!-- Learn More Button -->
@@ -112,7 +123,7 @@
               <div class="col-md-8 col-md-offset-2 wp1">
                 <h1 class="arrow">A little <span>about</span> me</h1><!-- Headline -->
 				<!-- about / welcome text -->
-                <p><?php echo isset($rowProfile['content']) ? $rowProfile['content'] : ''?></p>
+                <p><?php echo isset($rowAbout['content']) ? $rowAbout['content'] : ''?></p>
               </div>
             </div>
           </div>
@@ -140,7 +151,7 @@
                     <div class="icon">
                       <i class="fa fa-camera"></i><!-- Icon -->
                     </div>
-                    <h2>Photographer</h2><!-- Title -->
+                    <h2><?php echo isset($rowService['skill']) ? $rowService['skill'] : '' ?></h2><!-- Title -->
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum
                     primis in faucibus.</p><!-- Description -->
                   </div>
@@ -223,7 +234,7 @@
 		    <!-- Headline -->
             <div class="row">
               <h1 class="arrow">
-                Recent <span>Porojects</span>
+                Recent <span>Projects</span>
               </h1>
             </div>
           </div>

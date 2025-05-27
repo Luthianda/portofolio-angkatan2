@@ -1,3 +1,6 @@
+<?php 
+$id_level = isset($_SESSION['LEVEL']) ? $_SESSION['LEVEL'] : '';
+?>
 <header class="shadow">
             <nav class="navbar navbar-expand-lg bg-body-white">
                 <div class="container-fluid">
@@ -16,7 +19,10 @@
                                     </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="?page=about">About Me</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <!-- jika level admin maka akan dapet halaman user, jika bukan maka akan hilang hal usernya -->
+                                    <?php if($id_level == 1): ?>
+                                        <li><a class="dropdown-item" href="?page=user">User</a></li>
+                                    <?php endif ?>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="?page=contact">Contact</a></li>
                                 </ul>
@@ -27,17 +33,13 @@
                             $decrypt == 1)
                             ?> -->
                                 <li class="nav-item">
-                                    <a class="nav-link" href="?page=user">User
-                                    </a>
+                                    <a class="nav-link" href="?page=service">Service</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="?page=manage-skill">Skills</a>
+                                    <a class="nav-link" href="?page=blog">Blog</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="?page=manage-experience">Experience</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="?page=manage-gallery">Galleries</a>
+                                    <a class="nav-link" href="?page=portofolio">Portofolio</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="?page=manage-about">About Us</a>
@@ -46,7 +48,7 @@
                         <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                             <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <?php echo $_name ?>
+                                        <?php echo $_name = isset($_SESSION['NAME']) ? $_SESSION['NAME'] : '' ?>
                                         <!-- <?= $_name ?> (bisa juga pakai ini)-->
                                     </a>
                                 <ul class="dropdown-menu">

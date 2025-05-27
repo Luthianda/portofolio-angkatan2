@@ -63,7 +63,7 @@ include 'config/koneksi.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js" integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D" crossorigin="anonymous"></script> -->
         <script>
       $('#summernote').summernote({
-        placeholder: 'Hello stand alone ui',
+        placeholder: 'Masukkan kata-kata disini',
         tabsize: 2,
         height: 120,
         toolbar: [
