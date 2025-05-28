@@ -19,7 +19,7 @@ if (isset($_POST['simpan'])) {
         if(!empty($photo)){
             $fileName = uniqid() . "_" . basename($photo);
         }else{
-            $insertQ = mysqli_query($config, "INSERT INTO blogs (title, description) VALUES ('$title','$description'");
+            $insertQ = mysqli_query($config, "INSERT INTO portos (title, description) VALUES ('$title','$description'");
             header("location:?page=porto&tambah=berhasil");
         }
     }   
@@ -29,7 +29,7 @@ if (isset($_POST['simpan'])) {
 if (isset($_GET['delete'])) {
     $row = mysqli_fetch_all($queryBlog, MYSQLI_ASSOC);
     $id = $_GET['delete'];
-    $queryDelete = mysqli_query($config, "DELETE FROM blogs WHERE id='$id'");
+    $queryDelete = mysqli_query($config, "DELETE FROM portos WHERE id='$id'");
     header("location:?page=porto&hapus=berhasil");
 }
 ?>
