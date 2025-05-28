@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2025 at 10:21 AM
+-- Generation Time: May 28, 2025 at 06:20 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,7 @@ CREATE TABLE `abouts` (
 --
 
 INSERT INTO `abouts` (`id`, `name`, `position`, `photo`, `content`, `created_at`, `updated_at`, `status`) VALUES
-(1, 'Ananda NL', 'Desainer Grafis', '6833f1ab1c686_download (1).png', '<p>Desainer grafis yang patut dipertanyakan kejelasannya karena beliau tidak memiliki portofolio yang serius</p>', '2025-05-24 08:22:22', '2025-05-26 04:44:27', 1);
+(1, 'Ananda NL', 'Desainer Grafis', '68367bd09a67c_download.png', 'Desainer grafis yang patut dipertanyakan kejelasannya karena beliau tidak memiliki portofolio yang jelas', '2025-05-24 08:22:22', '2025-05-28 02:58:24', 1);
 
 -- --------------------------------------------------------
 
@@ -92,7 +92,8 @@ CREATE TABLE `contacts` (
 INSERT INTO `contacts` (`id`, `name`, `email`, `message`, `created_at`, `updated_at`) VALUES
 (1, 'Ananda NL', 'admin@gmail.com', 'adasdas', '2025-05-26 05:29:33', NULL),
 (2, 'Ananda NL', 'user@gmail.com', 'vgagaerfgarsdfgaersgvrde', '2025-05-26 07:08:05', NULL),
-(3, 'Ananda NL', 'user@gmail.com', 'vgagaerfgarsdfgaersgvrde', '2025-05-26 07:56:31', NULL);
+(3, 'Ananda NL', 'user@gmail.com', 'vgagaerfgarsdfgaersgvrde', '2025-05-26 07:56:31', NULL),
+(4, 'Biila', 'testing@gmail.com', 'raswfrsdfgrfgaergeasd', '2025-05-28 04:14:17', NULL);
 
 -- --------------------------------------------------------
 
@@ -150,6 +151,21 @@ INSERT INTO `profiles` (`id`, `profile_name`, `description`, `photo`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `profession` varchar(100) NOT NULL,
+  `comment` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `services`
 --
 
@@ -168,8 +184,9 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `photo`, `skill`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(1, '', 'Desain Grafis', '<p>ukuyjgjmfumkufykmuyfj</p>', 1, '2025-05-27 07:22:16', '2025-05-27 07:22:16'),
-(4, '68356846cac4c_download.png', 'Pengacara', '<p>erbeb aertaertfawrfaswf&nbsp; ert&nbsp; wefr</p>', 1, '2025-05-27 07:22:46', NULL);
+(1, '', 'Desain Grafis', '<p>Setidaknya ini yang bisa dibanggakan</p>', 0, '2025-05-28 01:58:16', '2025-05-28 01:58:16'),
+(5, '68366dda1a469_download (1).png', 'Pengacara', '<p>Pengangguran banyak acara</p>', 1, '2025-05-28 01:58:50', NULL),
+(6, '68366dff1cc3a_download.png', 'Web programming', '<p>masih noob, baru juga belajar</p>', 1, '2025-05-28 01:59:27', NULL);
 
 -- --------------------------------------------------------
 
@@ -236,6 +253,12 @@ ALTER TABLE `profiles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `services`
 --
 ALTER TABLE `services`
@@ -262,13 +285,13 @@ ALTER TABLE `abouts`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `levels`
@@ -289,10 +312,16 @@ ALTER TABLE `profiles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`

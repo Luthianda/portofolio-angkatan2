@@ -61,9 +61,9 @@ if (isset($_POST['simpan'])) {
                     <td><?= $data['position'] ?></td>
                     <td><?= $data['status'] ?></td>
                     <td>
-                        <a href="tambah-about.php?edit=<?php echo $data['id']?>" class="btn btn-success btn-sm">Edit</a>
+                        <a href="?page=tambah-about&edit=<?php echo $data['id']?>" class="btn btn-success btn-sm">Edit</a>
                         <a onclick="return confirm('Are you sure??')"
-                            href="?delete=<?php echo $data['id'] ?>" class="btn btn-warning btn-sm">Delete</a>
+                            href="?page=about&delete=<?php echo $data['id'] ?>" class="btn btn-warning btn-sm">Delete</a>
                     </td>
                 </tr>
                     <?php endforeach ?>

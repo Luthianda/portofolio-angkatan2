@@ -30,7 +30,7 @@ if (isset($_GET['delete'])) {
     $row = mysqli_fetch_all($queryService, MYSQLI_ASSOC);
     $id = $_GET['delete'];
     $queryDelete = mysqli_query($config, "DELETE FROM services WHERE id='$id'");
-    header("location:?page=about&hapus=berhasil");
+    header("location:?page=service&hapus=berhasil");
 }
 ?>
 <div class="table-responsive">

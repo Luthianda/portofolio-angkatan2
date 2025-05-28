@@ -63,12 +63,12 @@
 				<nav class="menu">
 				    <!-- Menu Links -->
 					<div class="icon-list">
-						<a href="depan/index.html#home"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
-						<a href="depan/index.html#about"><i class="fa fa-fw fa-quote-left"></i><span>About</span></a>
-						<a href="depan/index.html#service"><i class="fa fa-fw fa-globe"></i><span>Service</span></a>
-						<a href="depan/index.html#portfolio"><i class="fa fa-fw fa-picture-o"></i><span>Portfolio</span></a>
-						<a href="depan/index.html#blog"><i class="fa fa-fw fa-rss"></i><span>Blog</span></a>
-						<a href="depan/index.html#contact"><i class="fa fa-fw fa-envelope-o"></i><span>Contact</span></a>
+						<a href="#home"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
+						<a href="#about"><i class="fa fa-fw fa-quote-left"></i><span>About</span></a>
+						<a href="#service"><i class="fa fa-fw fa-globe"></i><span>Service</span></a>
+						<a href="#portfolio"><i class="fa fa-fw fa-picture-o"></i><span>Portfolio</span></a>
+						<a href="#blog"><i class="fa fa-fw fa-rss"></i><span>Blog</span></a>
+						<a href="#contact"><i class="fa fa-fw fa-envelope-o"></i><span>Contact</span></a>
 					</div>
 				</nav>
 			    </div>
@@ -77,6 +77,11 @@
             </div><!--/container-->
 		  <!-- Header Image -->
           <section class="hero" id="hero">
+            <!-- <?php if (isset($rowAbout['photo']) && !empty($rowAbout['photo'])): ?>
+                <img src="admin/uploads/<?php echo ($rowAbout['photo']); ?>" alt="Profile Photo" class="img-fluid" style="width: 20000px;">
+            <?php else: ?>
+                <p>Tidak ada foto yang tersedia.</p>
+            <?php endif; ?> -->
             <div class="container">
 			  <!-- Slider Button (don't edit!)-->
               <div class="row">
@@ -146,33 +151,16 @@
             <div class="row">
               <div class="col-md-12">
           <div class="services">
+            <?php foreach ($rowService as $key => $data): ?>
           <!-- Service Box 1 -->
                   <div class="col-md-4 wp2 item">
                     <div class="icon">
                       <i class="fa fa-camera"></i><!-- Icon -->
                     </div>
-                    <h2><?php echo isset($rowService['skill']) ? $rowService['skill'] : '' ?></h2><!-- Title -->
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum
-                    primis in faucibus.</p><!-- Description -->
+                    <h2><?= $data['skill'] ?></h2>
+                    <p><?= $data['description'] ?></p><!-- Description -->
                   </div>
-          <!-- Service Box 2 -->
-                  <div class="col-md-4 wp2 item delay-05s">
-                    <div class="icon">
-                      <i class="fa fa-desktop"></i><!-- Icon -->
-                    </div>
-                    <h2>Web Designer</h2><!-- Title -->
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum
-                    primis in faucibus.</p><!-- Description -->
-                  </div>
-          <!-- Service Box 3 -->
-                  <div class="col-md-4 wp2 item delay-1s">
-                    <div class="icon">
-                      <i class="fa fa-cubes"></i><!-- Icon -->
-                    </div>
-                    <h2>3D Artist</h2><!-- Title -->
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum
-                    primis in faucibus.</p><!-- Description -->
-                  </div>
+              <?php endforeach ?>
           </div>
                   <div class="clearfix"></div>
               </div>
@@ -366,74 +354,23 @@
               <div id="blogSlider">
                 <ul class="slides">
                   <li>
-            <!-- Blog Entry 1 -->
-                    <div class="col-md-4 wp4">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="depan/img/blog1.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                    <?php foreach ($rowBlog as $key => $data): ?>
+                    <!-- Blog Entry 1 -->
+                      <div class="col-md-4 wp4">
+                        <div class="overlay-effect effects clearfix">
+                          <div class="img">
+                            <?php if (isset($rowBlog['photo']) && !empty($rowBlog['photo'])): ?>
+                              <img src="admin/uploads/<?php echo ($data['photo']); ?>" alt="Profile Photo" class="img-fluid" style="width: 20000px;">
+                            <?php else: ?>
+                              <p>Tidak ada foto yang tersedia.</p>
+                            <?php endif; ?>
+                          </div>
                         </div>
+                        <br>
+                        <h2><?= $data['title'] ?></h2><!-- Headline -->
+                        <p><?= $data['description'] ?></p><!-- Description-->
                       </div>
-            <br>
-                      <h2>Creative Minds</h2><!-- Headline -->
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p><!-- Description-->
-                    </div>
-          <!-- Blog Entry 2 -->
-                    <div class="col-md-4 wp4 delay-05s">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="depan/img/blog2.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
-                        </div>
-                      </div>
-            <br>
-                      <h2>Creative Hearts</h2><!-- Headline -->
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p><!-- Description -->
-                    </div>
-          <!-- Blog Entry 3 -->
-                    <div class="col-md-4 wp4 delay-1s">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="depan/img/blog3.jpg"  class="grayscale" alt="Blog Item"><!-- Blog Image -->
-                        </div>
-                      </div>
-            <br>
-                      <h2>Creative Ideas</h2><!-- Headline -->
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p><!-- Description-->
-                    </div>
-                  </li>
-                  <li>
-            <!-- Blog Entry 4 -->
-                    <div class="col-md-4 wp4">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="depan/img/blog1.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
-                        </div>
-                      </div>
-            <br>
-                      <h2>Creative Minds</h2><!-- Headline -->
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p><!-- Description -->
-                    </div>
-          <!-- Blog Entry 5 -->
-                    <div class="col-md-4 wp4 delay-05s">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="depan/img/blog2.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
-                        </div>
-                      </div>
-            <br>
-                      <h2>Creative Hearts</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                    </div>
-          <!-- Blog Entry 6 -->
-                    <div class="col-md-4 wp4 delay-1s">
-                      <div class="overlay-effect effects clearfix">
-                        <div class="img">
-                          <img src="depan/img/blog3.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
-                        </div>
-                      </div>
-            <br>
-                      <h2>Creative Ideas</h2><!-- Headline -->
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p><!-- Description -->
-                    </div>
+                    <?php endforeach ?>
                   </li>
                 </ul>
               </div>
@@ -519,21 +456,21 @@
               <div class="col-md-4">
                 <div class="dark-box box-hover">
                   <h2><i class="fa fa-map-marker"></i><span>Address</span></h2>
-                  <p>23 Ipsum street, New York</p>
+                  <p>Tenabang, Jakarta Pusat</p>
                 </div>
               </div>
 			  <!-- Phone Number Box -->
               <div class="col-md-4">
                 <div class="dark-box box-hover">
                   <h2><i class="fa fa-mobile"></i><span>Phone</span></h2>
-                  <p>+12 345 6789</p>
+                  <p>+62 86969696969</p>
                 </div>
               </div>
 			  <!-- E-Mail Box -->
               <div class="col-md-4">
                 <div class="dark-box box-hover">
                   <h2><i class="fa fa-paper-plane"></i><span>Email</span></h2>
-                  <p><a href="index.html#">info@themewagon.com</a></p>
+                  <p><a href="index.html#">luthianda17@gmail.com</a></p>
                 </div>
               </div>
             </div>

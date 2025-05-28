@@ -69,7 +69,7 @@ if (isset($_POST['edit'])) {
         $photo = $_FILES['photo']['name'];
         $status = $_POST['status'];
 
-    if(!empty($skill)){
+    if(!empty($title)){
         $queryUpdate = mysqli_query($config, "UPDATE portos SET title='$title', photo='$fileName', status='$status'");
         header("location:?page=porto&ubah=berhasil");
     }else{
@@ -101,7 +101,7 @@ $row = mysqli_fetch_assoc($selectPorto);
             <label for="">Judul</label>
         </div>
         <div class="col-sm-10">
-            <input required name="title" type="text" class="form-control" placeholder="Masukkan Judul Blog"  
+            <input required name="title" type="text" class="form-control" placeholder="Masukkan Judul Portofolio"  
             value="<?= isset($_GET['edit'])? $rowEdit['title'] : '' ?>">
         </div>
     </div>

@@ -11,7 +11,7 @@ $id_level = isset($_SESSION['LEVEL']) ? $_SESSION['LEVEL'] : '';
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active" aria-current="page" href="?page=home">Home</a>
                             </li>
                             <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -39,10 +39,10 @@ $id_level = isset($_SESSION['LEVEL']) ? $_SESSION['LEVEL'] : '';
                                     <a class="nav-link" href="?page=blog">Blog</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="?page=portofolio">Portofolio</a>
+                                    <a class="nav-link" href="?page=porto">Portofolio</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="?page=manage-about">About Us</a>
+                                    <a class="nav-link" href="?page=review">Review</a>
                                 </li>
                         </ul>
                         <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
