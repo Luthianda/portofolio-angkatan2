@@ -121,7 +121,7 @@
 		    <!-- WELCOME TEXT -->
             <div class="row">
               <div class="col-md-8 col-md-offset-2 wp1">
-                <h1 class="arrow">A little <span>about</span> me</h1><!-- Headline -->
+                <h1 class="arrow">A littleeee <span>about</span> me</h1><!-- Headline -->
 				<!-- about / welcome text -->
                 <p><?php echo isset($rowAbout['content']) ? $rowAbout['content'] : ''?></p>
               </div>
