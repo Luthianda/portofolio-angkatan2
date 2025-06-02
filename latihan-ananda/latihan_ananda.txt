@@ -1,0 +1,33 @@
+Sintaks membuat tabel dan menambahkan data
+
+CREATE TABLE users (
+	id INT AUTO INCREMENT PRIMARY KEY, name VARCHAR(50));
+
+CREATE TABLE orders ( 
+	id INT AUTO INCREMENT PRIMARY KEY, user id INT, product name VARCHAR(50), FOREIGN KEY (user_id) REFERENCES users(id) );
+
+INSERT INTO users (name) VALUES ('Nanda');
+INSERT INTO users (name) VALUES ('Pina');
+INSERT INTO users (name) VALUES ('Dinda');
+
+INSERT INTO orders (user id, product_name) VALUES (1, 'Cushion');
+INSERT INTO orders (user_id, product name) VALUES (3, 'Bedak');
+INSERT INTO orders (user id, product name) VALUES (4, 'Blush');
+INSERT INTO orders (product name) VALUES ('Lipstik');
+
+*No. 1:
+SELECT o.id AS order_id, u.name, o.product_name FROM users u 
+LEFT JOIN orders o 
+ON u.id = o.user_id;
+
+*No. 2:
+SELECT o.id AS order_id, u.name, o.product_name FROM users u 
+LEFT JOIN orders o 
+ON u.id = o.user_id
+WHERE o.id IS NULL;
+
+*No. 3:
+SELECT o.id AS order_id, u.name, o.product_name FROM users u 
+RIGHT JOIN orders o 
+ON u.id = o.user_id
+WHERE u.name IS NULL;
